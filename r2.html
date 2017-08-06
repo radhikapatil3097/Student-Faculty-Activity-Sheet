@@ -1,0 +1,187 @@
+<html>
+<head>
+<style>
+table#t01 ,th#t01,td#t01 
+	{
+		border :1px solid black
+	}
+th#01{
+	style="color:steelblue;"
+	}
+td#t01{
+		text-align: center;
+	}
+table#t02 ,th,td 
+	{
+		border :1px white
+	}
+div.heading{
+		background-color:steelblue;
+		color:white;
+		margin:20px 0 20px 0;
+		padding:20px;
+	   }
+
+</style>
+</head>
+<body>
+<div class="heading">
+<table id="t02">
+<tr>
+<td>
+<ul id="m01">
+<li id="m01"><a href="r1.html"><img height=25 width=25 src="home-ios-7-interface-symbol_318-38804.jpg"></img>&nbsp&nbspHome</a></li>
+</td>
+</ul>
+</tr>
+</table>
+<table align="center">
+<tr>
+<td><img height=100 width=100 src="DBIT_logo.png"></img></td>
+<td><h2><font color="white">&nbsp&nbspStudent Faculty Activity</font></h2><br></td>
+</tr>
+</table>
+</div>
+<br><br>
+<hr color="8b8b8c">
+<br><br>
+<br><br>
+<ul id="m01">
+<li id="m01"><a href="r3.html">Teacher Information</a></li>
+</ul>
+<br><br>
+<fieldset>
+<!--<legend style="color:steelblue;">Student Information</legend><br>
+<table>
+<tr>
+<td>Department</td><td>:</td>
+<td>
+<select style="width:90%" value="dept">
+<option value="it" >Information Technology</option>
+<option value="comp">Computer Engineering</option>
+<option value="extc">Electronic and Telecommunication</option>
+<option value="mech">Mechanical Engineering</option>
+</select> 
+</td>
+</tr>
+<tr>
+<td>Year</td><td>:</td>
+<td>
+<select value="year" style="width:90%">
+<option value="F.E.">First Year</option>
+<option value="S.E.">Second Year</option>
+<option value="T.E.">Third Year</option>
+<option value="B.E.">Fourth Year</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Roll No.</td><td>:</td>
+<td>
+<input type=number min=1 style="width:90%">
+</td>
+</tr>
+<tr>
+<td>List of Projects <br>in which the student is involved</td><td>:</td>
+<td>
+<select style="width:90%" name="faculty">
+<option value="Project no 1">Project no 1</option>
+<option value="Project no 2">Project no 2</option>
+<option value="Project no 3">Project no 3</option>
+<option value="Project no 4">Project no 4</option>
+</select>
+</td>
+</tr>
+<tr>
+</table>
+-->
+
+<form method = "post" action="sfa2.php">
+<h3>Select the Department and Class of Student and enter the Roll Number :</h3><br>
+
+<table>
+<tr>
+            <th>Class</th>
+            <td>:</td>
+            <td><select name="class" id="class" style="width:90%">
+              <option value="select-class" selected>--Select Class--</option>
+              <option value="FE" >FE</option>
+              <option value="SE" >SE</option>
+              <option value="TE" >TE</option>
+              <option value="BE" >BE</option>
+              <option value="others" >OTHERS</option>
+            </select></td>
+</tr>
+
+<tr>
+            <th>Department</th>
+            <td>:</td>
+            <td><select name="dept" id="dept" style="width:90%">
+              <option value="I" selected>--Select Dept--</option>
+              <option value="IT">Information Technology</option>
+              <option value="CO">Computer Science</option>
+              <option value="EX">Electronics And Telecommunication</option>
+              <option value="ME">Mechanical</option>
+              <option value="others" >OTHERS</option>
+            </select></td>
+</tr>
+<tr><th>Roll no.</th><td>:</td><td><input type=number min=0 name=roll id=roll style="width:90%"></td></tr>
+</table><br>
+<center><button type=submit value=Submit >OK</button></center><br><br>
+</form>
+<!--<td>Number of students</td><td>:</td><td><input style="width:20%" type="number" name="quantity" min="1" max="10"></td></tr>
+<br><br>
+<table  style="width:100%" id="t01" >
+  <tr>
+    <th id="t01">Name</th>
+    <th id="t01">Class</th> 
+    <th id="t01">Roll No</th>
+  </tr>
+  <tr>
+    <td id="t01">Student 1</td>
+    <td id="t01">SE</td>
+    <td id="t01">50</td>
+  </tr>
+  <tr id="t01">
+    <td id="t01">Student 2</td>
+    <td id="t01">TE</td>
+    <td id="t01">94</td>
+  </tr>
+  <tr id="t01">
+    <td id="t01">Student 3</td>
+    <td id="t01">BE</td>
+    <td id="t01">80</td>
+  </tr>
+</table>-->
+<br>
+</fieldset>
+<style>
+ul#m01 {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+    background-color: steelblue;
+}
+
+li#m01 {
+    float: left;
+}
+
+li#m01 a {
+    display: block ;
+    color: white;
+    text-align: center;
+    padding: 6px;
+    text-decoration: none;
+}
+
+li#m01 a:hover {
+    background-color:11103d;
+}
+</style>
+<br><br>
+<hr color="8b8b8c">
+<br><br>
+</body>
+</html>

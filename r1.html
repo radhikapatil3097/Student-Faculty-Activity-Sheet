@@ -1,0 +1,274 @@
+<html>
+<head>
+<form method=get>
+<SCRIPT language="javascript">
+	var x;
+	var count=0;
+		function addRow(tableID) 
+		{
+
+			count = count + 1;
+
+			var table = document.getElementById(tableID);
+
+			var rowCount = table.rows.length;
+			var row = table.insertRow(rowCount);
+
+			var colCount = table.rows[0].cells.length;
+
+			for(var i=0; i<colCount; i++) 
+			{
+
+				var newcell	= row.insertCell(i);
+
+				newcell.innerHTML = table.rows[1].cells[i].innerHTML;
+				//alert(newcell.childNodes);
+				switch(newcell.childNodes[0].type)
+				 {
+					case "text":
+							newcell.childNodes[0].value = "";
+							break;
+					case "checkbox":
+							newcell.childNodes[0].checked = false;
+							break;
+					case "select-one":
+							newcell.childNodes[0].selectedIndex = 0;
+							break;
+				}
+			}
+			return count;
+		}
+
+		function deleteRow(tableID) 
+		{
+			count=count-1;
+
+			try {
+			var table = document.getElementById(tableID);
+			var rowCount = table.rows.length;
+
+			for(var i=0; i<rowCount; i++) {
+				var row = table.rows[i];
+				var chkbox = row.cells[0].childNodes[0];
+				if(null != chkbox && true == chkbox.checked) {
+					if(rowCount <= 2) {
+						alert("Cannot delete all the rows.");
+						break;
+					}
+					table.deleteRow(i);
+					rowCount--;
+					i--;
+				}
+
+
+			}
+			}catch(e) {
+				alert(e);
+			}
+
+			return count;
+		}
+		
+		document.getElementById("demo").innerHTML = x;
+		window.location.href = "insert.php?count=" + x;
+	</SCRIPT>
+	</form>
+<style>
+table#tableID,th#t01,td#t01 
+	{
+		border :1px solid black
+	}
+th#01{
+	style="color:steelblue;"
+	}
+div.heading{
+		background-color:steelblue;
+		color:white;
+		margin:20px 0 20px 0;
+		padding:20px;
+	   }
+</style>
+</head>
+<body>
+<script type="text/javascript">
+
+function validate()
+{
+/*var num=/^[0-9]+$/*/
+var Project_Title=document.getElementById("Project_Title");
+var Project_Description=document.getElementById("Project_Description");
+var adate=document.getElementById("adate");
+var sdate=document.getElementById("sdate");
+if(Project_Title.value=="")
+{
+alert("Enter Project/Task Title");
+}
+if(Project_Description.value=="")
+{
+alert("Project Description is needed");
+}
+if(adate.value=="")
+{
+alert("Enter Date of assignment of the project");
+}
+if(sdate.value=="")
+{
+alert("Enter Date of submission of the project");
+}
+/*if(inputnum.value.match(num))
+{
+}
+else if(inputnum.value=="")
+{
+alert("Enter Number of Students");
+}
+else
+{
+alert("Please enter the Number of students properly");
+}*/
+}
+</script>
+
+
+<div class="heading">
+<table align="center">
+<tr>
+<td><img height=100 width=100 src="DBIT_logo.png"></img></td>
+<td><h2><font color="white">&nbsp&nbspStudent Faculty Activity</font></h2><br></td>
+</tr>
+</table>
+</div>
+<br><br>
+<hr color="8b8b8c">
+<br><br>
+<ul id="m01">
+<li id="m01"><a href="r2.html">Student Information</a></li>
+<li id="m01"><a href="r3.html">Teacher Information</a></li>
+</ul>
+<br><br>
+
+
+<fieldset>
+<legend style="color:steelblue;">Basic Information</legend>
+
+
+
+
+<form method="post" name="sfa" action="insert.php">
+
+
+
+<table>
+<tr>
+<td>Department</td><td>:</td>
+<td><select style="width:100%" name="dept" id="dept">
+<option value="it" >Information Technology</option>
+<option value="comp">Computer Engineering</option>
+<option value="extc">Electronic and Telecommunication</option>
+<option value="mech">Mechanical Engineering</option>
+</select></td>
+</tr>
+<tr>
+<td>Faculty Incharge</td><td>:</td>
+<td>
+<select style="width:100%"  name="faculty" id="faculty">
+<option value="Nilesh Sir" >Nilesh Sir</option>
+<option value="Sushree Maam">Sushree Maam</option>
+<option value="Vaishali Maam">Vaishali Maam</option>
+<option value="Shiv Sir">Shiv Sir</option>
+</select>
+</td>
+</tr>
+<br>
+<tr>
+<td>Project/Task Title</td><td>:</td>
+<td><input type="text" id="Project_Title"  name="Project_Title" style="width:100%"></td>
+</tr>
+
+<tr>
+<td>Project Description</td><td>:</td>
+<td><textarea rows="2" cols="30" id="Project_Description" name="Project_Description" ></textarea></td>
+<tr>
+
+<tr>
+<td>Date of assignment</td><td>:</td><td><input id="adate" name="adate" type="date" style="width:100%"></td>
+</tr>
+
+<tr>
+<td>Date of submission</td><td>:</td><td><input id="sdate" name="sdate" type="date" style="width:100%"></td>
+</tr>
+
+</table>
+<br><br>Enter student information :&nbsp
+<INPUT type="button" value="Add Row" onclick="addRow('dataTable')" />
+
+	<INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')" />
+
+	<TABLE id="dataTable" width="100%" border="1">
+	<tr>
+	<th id="t01">-</th>	
+    <th id="t01">Name</th>
+    <th id="t01">Department of the student</th> 
+    <th id="t01">Current Academic Year</th>
+    <th id="t01">Roll No.</th>
+  </tr>
+    <tr>
+    <td><INPUT type="checkbox" name="chk"/></td>
+    <td id="t01" width: 100% ><input type="text" style="width:100%" name="sname" id="sname"></td>
+    <td id="t01" width: 100% ><select style="width:100%"  name="dept1" id="dept1">
+			<option value="it" >Information Technology</option>
+			<option value="comp">Computer Engineering</option>
+			<option value="extc">Electronic and Telecommunication</option>
+			<option value="mech">Mechanical Engineering</option>
+		</select></td> 
+    <td id="t01"><select style=" width:100%"  name="year1" id="year1">
+			<option value="fe">First Year</option>
+			<option value="se">Second Year</option>
+			<option value="te">Third Year</option>
+			<option value="be">Fourth Year</option>
+		</select></td>
+    <td id="t01"><input type="number" style="width:100%" name="rollno" id="rollno"></td>
+  </tr>
+	</TABLE>
+<br>
+<br>
+
+
+<button type="submit" value="Submit" onclick='validate();' >Submit</button>
+<input type="Reset" name="Reset" value="Reset"/>
+</form>
+</fieldset>
+
+<style>
+ul#m01 {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+    background-color: steelblue;
+}
+
+li#m01 {
+    float: left;
+}
+
+li#m01 a {
+    display: block ;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li#m01 a:hover {
+    background-color:11103d;
+}
+</style>
+<br><br>
+<hr color="8b8b8c">
+<br><br>
+<div class="heading">
+Designed by Radhika B Patil S.E. I.T.
+</div>
+</body>
+<html>
